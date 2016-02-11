@@ -1,7 +1,7 @@
 W32API
 ======
 
-[W32API](https://github.com/999hatsune/W32API.jl)
+[W32API](https://github.com/HatsuneMiku/W32API.jl)
 
 W32API implements MessageBox for UTF8String.
 
@@ -37,7 +37,7 @@ now supports 32bit
 
 # see also
 
-[WCharUTF8](https://github.com/999hatsune/WCharUTF8.jl)
+[WCharUTF8](https://github.com/HatsuneMiku/WCharUTF8.jl)
 
 # status
 
