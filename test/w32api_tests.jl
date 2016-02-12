@@ -18,4 +18,5 @@ wb = Array{UInt16, 1}([0x0062, 0x0064, 0x0079,
   0x65e5, 0x672c, 0x8a9e, 0x6f22, 0x5b57, 0x8868, 0x793a, 0x7533, 0x80fd, 0])
 println(format("[{:08x}]", W32API.MBoxW(wb, wt)))
 println(format("[{:08x}]", W32API.MBoxW("callW表申能UTF8", "callW表示申UTF8")))
-@test 1 == 1
+@test W32API.MBox("ok", "last") == 0x00000001
+# @test W32API.MBox(wb, wt) != 0x00000001 # no function
