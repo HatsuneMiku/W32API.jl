@@ -3,9 +3,10 @@ W32API
 
 [W32API](https://github.com/HatsuneMiku/W32API.jl)
 
-W32API implements MessageBox for UTF8String.
+W32API implements MessageBox for UTF8String .
+It uses Win32API .
 
-UTF8 string will be converted to wchar_t string.
+UTF8 string will be converted to wchar_t ( UTF16 ) string .
 
 
 # MBox
