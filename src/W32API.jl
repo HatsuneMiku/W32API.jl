@@ -16,8 +16,8 @@ function MBoxA(Msg::AbstractString, Title::AbstractString) # expect ASCIIString
   user32 = Base.Libdl.dlopen_e("user32.dll")
   MessageBoxA = Base.Libdl.dlsym(user32, :MessageBoxA)
   err = ccall(MessageBoxA, stdcall,
-    UInt, (Ptr{Void}, Ptr{Cchar}, Ptr{Cchar}, UInt),
-    C_NULL, Msg, Title, 0)
+    UInt, (Ptr{Void}, Ptr{UInt8}, Ptr{UInt8}, UInt),
+    C_NULL, [Msg.data; [0x00]], [Title.data; [0x00]], 0)
   Base.Libdl.dlclose(user32)
   return err
 end
@@ -31,7 +31,7 @@ function MBoxW(Msg::Array{UInt16, 1}, Title::Array{UInt16, 1}) # expect wchar_t
   MessageBoxW = Base.Libdl.dlsym(user32, :MessageBoxW)
   err = ccall(MessageBoxW, stdcall,
     UInt, (Ptr{Void}, Ptr{Cwchar_t}, Ptr{Cwchar_t}, UInt),
-    C_NULL, Msg, Title, 0)
+    C_NULL, [Msg; [0x0000]], [Title; [0x0000]], 0)
   Base.Libdl.dlclose(user32)
   return err
 end
